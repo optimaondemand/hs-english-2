@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>English 2 &mdash; Lesson 4.MS1</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    /* ===== WIDGET CSS (ELA gold/indigo palette; no green/teal) ===== */
+    .optima-widget { background: linear-gradient(135deg, #EEF1F8 0%, #F4F6FA 100%); border: 1px solid #C7D0E5; border-left: 5px solid #3B4E8C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #3B4E8C; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #3B4E8C; }
+    .widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+    .widget-options button.correct { background: #FDF3E3; border-color: #C7922C; color: #7A5A17; }
+    .widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+    .widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+    .widget-feedback.show { display: block; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #FDF3E3; border-left: 3px solid #C7922C; color: #7A5A17; }
+    .row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+    .widget-reset:hover { background: #FDF3E3; }
+    /* ===== BREAK CARDS (the named ways reasoning fails) ===== */
+    .break-board { background: #0E1C42; border-radius: 8px; padding: 22px 24px; margin: 6px 0 16px 0; }
+    .break-row { border-left: 3px solid #C7922C; padding-left: 14px; margin-bottom: 18px; }
+    .break-row:last-child { margin-bottom: 0; }
+    .break-name { font-size: 15px; color: #55C8E8; letter-spacing: 0.3px; margin-bottom: 5px; }
+    .break-move { font-size: 16px; color: #FFFFFF; line-height: 1.55; margin-bottom: 5px; }
+    .break-eg { font-size: 15px; color: rgba(255,255,255,0.78); line-height: 1.55; font-style: italic; }
+    .audit-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #3B4E8C; border-radius: 6px; padding: 14px 18px; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- ===== HEADER ===== -->
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ENGLISH 2</div>
+    <div style="font-size: 18px; color: #55c8e8;">Quarter 2 &middot; Module 2: Oedipus the King &mdash; The Trial of a King &middot; Lesson 4.MS1 &middot; Student Page</div>
+</div>
+
+<!-- ===== METADATA STRIP ===== -->
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 4px;">Quarter / Module</div>
+        <div style="font-size: 17px; color: #0e1c42;">Q2 &middot; Module 2</div>
+        <div style="font-size: 12px; color: #1a2340;">Oedipus the King: The Trial of a King</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 4px;">Week / Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Week 4</div>
+        <div style="font-size: 12px; color: #1a2340;">Lesson 4.MS1</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 4px;">Anchor Text</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Oedipus the King</div>
+        <div style="font-size: 12px; color: #1a2340;">Sophocles, trans. F. Storr (public domain)</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Kings and Community</div>
+    </div>
+</div>
+
+<!-- ===== BODY WRAPPER ===== -->
+<div style="padding: 24px 34px;">
+
+    <!-- Title strip -->
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 4.MS1</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">When an Argument Breaks</div>
+        <div style="font-size: 16px; color: #1a2340;">Lesson &middot; Week 4 &middot; Argument &amp; Reasoning</div>
+    </div>
+
+    <!-- Today's Focus -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY&rsquo;S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Some arguments lose because the evidence is thin. Others lose because the reasoning has a hole in it, and a hole can hide under a great deal of confidence.</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">In Lesson 4.03 you learned to state the other side&rsquo;s strongest case before answering it. That skill assumes the other side has a real case. Sometimes it does not. Sometimes an argument only sounds strong, and an advocate who cannot say exactly where it fails has to either accept it or object without being able to explain why. Today you learn to name the failure precisely. You will find every example in this lesson inside the play you are already reading, because the characters in <em>Oedipus the King</em> argue badly under pressure in ways that are very recognizable.</div>
+    </div>
+
+    <!-- Objectives -->
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> tell the difference between an argument that is weak and one whose reasoning is broken.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> name six common ways reasoning breaks, and point to each one in the play.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain why naming the break is only half of an objection, and supply the other half.</div>
+        </div>
+    </div>
+
+    <!-- ===== PART 1 ===== -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; WEAK IS NOT THE SAME AS BROKEN</div>
+
+        <!-- reflective check-in -->
+        <div class="optima-widget ow-reflect">
+            <div class="widget-kicker">&#9889; QUICK CHECK-IN</div>
+            <div class="widget-question">Think of a time you knew someone was wrong but could not explain why in the moment, and only worked it out later. What was missing while you were standing there? (No wrong answer.)</div>
+            <div class="widget-options">
+                <button data-response="That is the exact gap this lesson closes. Having a name ready is what turns a vague sense of wrongness into something you can say out loud.">&#128173; I could feel the problem but had no words for it</button>
+                <button data-response="Confidence is persuasive on its own, which is why a broken argument delivered firmly can beat a sound one delivered hesitantly. Naming the break is how you take that advantage away.">&#128172; They sounded so certain that I assumed I was the one who was wrong</button>
+                <button data-response="Time to reread is a luxury an advocate does not always get. Recognizing the shape of a broken argument is what lets you catch it at speed.">&#9203; I needed time to go back over what they actually said</button>
+            </div>
+            <div class="widget-feedback"></div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Every argument you have built this module has three parts: a claim, evidence, and reasoning that connects the two. There are two very different ways that structure can fail, and an advocate has to answer them differently.</p>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">An argument is <strong>weak</strong> when the evidence is real and simply does not carry the claim as far as the claim goes. One matching detail in the herdsman&rsquo;s account is real evidence. It is not yet enough to convict. You answer a weak argument by showing how much more it would need to prove.</p>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">An argument is <strong>broken</strong> when the reasoning itself does not connect, so more evidence of the same kind would not fix it. If someone argues that Tiresias must be lying because he is bitter, then no amount of additional proof of Tiresias&rsquo;s bitterness will establish that his accusation is false. Bitter people can be right. The link between the two claims was never there. You answer a broken argument by showing that the connection is missing.</p>
+
+        <div style="background: #EEF1F8; border-left: 5px solid #3B4E8C; border-radius: 6px; padding: 14px 20px; margin: 14px 0 0 0;">
+            <div style="font-size: 17px; color: #1a2340; line-height: 1.65;"><strong>The diagnostic question:</strong> if this person had twice as much evidence of exactly the same kind, would the argument work? If yes, it is weak. If no, it is broken, and you should be able to say where.</div>
+        </div>
+    </div>
+
+    <!-- ===== PART 2 ===== -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; SIX BREAKS, AND WHERE THEY HAPPEN IN THE PLAY</div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 6px 0;">These six account for most broken reasoning you will meet, in a courtroom or anywhere else. Each has a name, and the name is useful for the same reason &ldquo;epic simile&rdquo; is useful: once you can say it, you can see it. Read the middle line of each card first, since that is the actual move. The example underneath comes from a scene you have already read.</p>
+
+        <!-- ONE MEANINGFUL VISUAL: named breaks with worked examples from the play -->
+        <div class="break-board">
+            <div style="font-size: 11px; color: #C7922C; letter-spacing: 0.4px; margin-bottom: 16px;">&#128221; SIX WAYS REASONING BREAKS &middot; WORKED FROM THE PLAY</div>
+
+            <div class="break-row">
+                <div class="break-name">GOING AFTER THE PERSON</div>
+                <div class="break-move">The claim is never answered. The person who made it is discredited instead, as though that settled the claim.</div>
+                <div class="break-eg">Tiresias names Oedipus &ldquo;the accursed polluter of this land.&rdquo; Oedipus answers by calling him a fraud, a beggarly trickster, blind in his craft. Notice what is missing: any account of where Oedipus was the day Laius died.</div>
+            </div>
+
+            <div class="break-row">
+                <div class="break-name">TWO DOORS WHEN THERE ARE MORE</div>
+                <div class="break-move">A situation with several possibilities is presented as a choice between exactly two, usually one absurd and one the speaker wants.</div>
+                <div class="break-eg">Oedipus concludes that either Tiresias is telling the truth or Tiresias and Creon are conspiring to take the throne. A third possibility never gets named: that Tiresias sincerely believes something mistaken, or that he is right and no plot exists at all.</div>
+            </div>
+
+            <div class="break-row">
+                <div class="break-name">TOO MUCH FROM TOO LITTLE</div>
+                <div class="break-move">A conclusion far larger than the evidence gets drawn from one case, one detail, or one witness.</div>
+                <div class="break-eg">The crossroads location matches. That single agreement between two accounts is treated, in the moment, as though it settled everything about who killed Laius, before the number of attackers has been resolved at all.</div>
+            </div>
+
+            <div class="break-row">
+                <div class="break-name">AFTER IT, SO BECAUSE OF IT</div>
+                <div class="break-move">Two things happen in sequence, and the earlier one is assumed to have caused the later one, with nothing but the order offered as proof.</div>
+                <div class="break-eg">Oedipus arrived, the Sphinx was defeated, Thebes prospered, so Oedipus must be favored by the gods. The sequence is accurate. The causal claim built on it is an assumption, and the play spends the rest of its length dismantling it.</div>
+            </div>
+
+            <div class="break-row">
+                <div class="break-name">THE CIRCLE</div>
+                <div class="break-move">The thing being proved is quietly used as one of the reasons for proving it, so the argument never actually goes anywhere.</div>
+                <div class="break-eg">&ldquo;Oedipus must be the polluter, because the plague proves the land is polluted, and the land is polluted because Oedipus is here.&rdquo; Each half leans on the other. Nothing outside the circle is ever offered.</div>
+            </div>
+
+            <div class="break-row">
+                <div class="break-name">BECAUSE OF WHO SAID IT</div>
+                <div class="break-move">The speaker&rsquo;s standing is treated as proof rather than as a reason to take the claim seriously. This is the subtle one, because standing genuinely is evidence.</div>
+                <div class="break-eg">&ldquo;Tiresias is a prophet, so the accusation is true.&rdquo; His record is a real reason to weigh his words heavily. It is not the same as the account of the killing itself, which is what would actually establish the charge.</div>
+            </div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Notice how many of these Oedipus commits himself, and how sympathetic he is while committing them. He is not stupid and he is not lying. He is frightened, and frightened people reason badly in exactly these directions. That is worth remembering when you audit your own brief later in this lesson.</p>
+    </div>
+
+    <!-- ===== PART 3 ===== -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; NAMING IT IS ONLY HALF AN OBJECTION</div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Here is the trap that comes with learning these names, and it is worth more of your attention than the list itself. Once you can name a break, it is tempting to treat the name as the whole objection: to say &ldquo;that is going after the person&rdquo; and stop, as though a label were an argument. It is not. A label tells a reader what category the problem is in. It does not tell them what the problem <em>is</em>.</p>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 14px 0;">A complete objection has two parts. Name the break, then <strong>state what the argument would need in order to work</strong>. The second part is the part that actually does damage, and it is the part that shows you understood the other side rather than just catalogued it.</p>
+
+        <div style="background: #FFFDF7; border: 1px solid #E7D6AE; border-radius: 8px; padding: 18px 20px; margin: 0 0 16px 0;">
+            <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px; letter-spacing: 0.4px;">&#128221; HALF AN OBJECTION, THEN A WHOLE ONE</div>
+            <div style="border-left: 3px solid #C0392B; padding-left: 14px; margin-bottom: 16px;">
+                <div style="font-size: 13px; color: #8A1F16; letter-spacing: 0.3px; margin-bottom: 6px;">HALF &middot; THE LABEL ALONE</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.6;">My opponent argues that Oedipus is guilty because Tiresias says so. This is an appeal to authority.</div>
+            </div>
+            <div style="border-left: 3px solid #C7922C; padding-left: 14px;">
+                <div style="font-size: 13px; color: #C7922C; letter-spacing: 0.3px; margin-bottom: 6px;">WHOLE &middot; THE LABEL PLUS WHAT IS MISSING</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.6;">My opponent rests the charge on Tiresias&rsquo;s standing as a prophet rather than on any account of the killing. Tiresias&rsquo;s record is a strong reason to take the accusation seriously, and I do. But an accusation is not testimony about the event. To establish that Oedipus killed Laius, this argument would need the herdsman&rsquo;s account of how many attackers there were, which is the one piece of evidence it never addresses.</div>
+                <div style="font-size: 14px; color: #1a2340; line-height: 1.5; margin-top: 8px;"><strong>Why this version does the damage:</strong> it grants what is genuinely strong, identifies the exact gap, and then names the specific evidence that would have to fill it. A Council member can act on this. They cannot act on a label.</div>
+            </div>
+        </div>
+
+        <!-- evaluative widget -->
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9889; TRY IT &middot; WHERE DOES THE REASONING ACTUALLY BREAK?</div>
+            <div class="widget-question">An opposing advocate argues: &ldquo;Oedipus cannot be trusted about the crossroads. He is a man who threatened an old blind prophet, insulted his own brother-in-law, and lost his temper twice in a single afternoon. A man like that will say anything to protect himself.&rdquo; Four responses are offered below. Which one is a complete objection?</div>
+
+            <div class="widget-row" data-correct="1" data-fb="Right. It grants what is true, names the break precisely (the temper is offered in place of anything about the killing), and then states exactly what the argument would need instead. That last move is what makes it an objection rather than a label." data-hint="Two of these are true observations that stop too early, and one answers a claim the opponent never made. Look for the one that grants what is real, names the gap, and says what evidence would be needed to close it.">
+                <div class="widget-row-prompt">Which response is a complete objection?</div>
+                <div class="widget-options">
+                    <button data-choice="0">This is going after the person rather than the claim, which is a well-known break in reasoning and should be disregarded by the Council.</button>
+                    <button data-choice="1">My opponent is right that Oedipus loses his temper, and the scenes are exactly as described. But a temper is offered here in place of any account of the crossroads, and the two are not connected: quick-tempered people are not thereby unreliable about what they did. To damage his account of that day, my opponent would need evidence about the day itself, such as the number of attackers the herdsman reported.</button>
+                    <button data-choice="2">My opponent is attacking Oedipus&rsquo;s character instead of his testimony, and character evidence has no place in a proceeding of this kind.</button>
+                    <button data-choice="3">My opponent claims Oedipus is a violent man by nature, but the play shows he is capable of great restraint, and a single afternoon of anger cannot define a whole reign.</button>
+                </div>
+            </div>
+
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 20px; margin-top: 4px;">
+            <div style="font-size: 13px; color: #3B4E8C; letter-spacing: 0.3px; margin-bottom: 10px;">WHY THE OTHER THREE FALL SHORT</div>
+            <div style="font-size: 15px; color: #1a2340; line-height: 1.6; margin-bottom: 8px;"><strong>The first</strong> names the break correctly and then asks the Council to do the rest of the work. It never says what is missing or what would fill the gap, and &ldquo;should be disregarded&rdquo; is an instruction, not a reason. This is the label-as-objection trap in its purest form.</div>
+            <div style="font-size: 15px; color: #1a2340; line-height: 1.6; margin-bottom: 8px;"><strong>The third</strong> is tempting because it sounds more substantive, and it goes wrong in a different way: it claims character evidence has no place at all, which is too strong. How a man behaves under pressure can be genuinely relevant. The problem was never that character was mentioned. It was that character was offered as a substitute for an account of the killing.</div>
+            <div style="font-size: 15px; color: #1a2340; line-height: 1.6;"><strong>The fourth</strong> answers a claim the opponent did not make. It argues about whether Oedipus is truly a violent man, which accepts the opponent&rsquo;s framing and fights on their ground. Once you are debating his temper, you have conceded that his temper is what the case turns on.</div>
+        </div>
+    </div>
+
+    <!-- ===== PART 4: SELF-AUDIT ===== -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 4 &middot; AUDIT YOUR OWN BRIEF</div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 14px 0;">These six breaks are much easier to spot in someone else&rsquo;s writing than in your own, for the same reason Oedipus cannot see his: you already believe your conclusion, so the steps toward it feel obvious. Run the four checks below against your Week 4 steelman and, later, against your draft brief.</p>
+
+        <div class="audit-card">
+            <div style="font-size: 13px; color: #3B4E8C; letter-spacing: 0.3px; margin-bottom: 6px;">CHECK ONE &middot; DID I ANSWER THE ARGUMENT OR THE ARGUER?</div>
+            <div style="font-size: 16px; color: #1a2340; line-height: 1.6;">Find every sentence in your brief about what kind of person Oedipus is. For each one, ask whether it does work your case actually needs, or whether it is standing in for evidence about the killing.</div>
+        </div>
+
+        <div class="audit-card">
+            <div style="font-size: 13px; color: #3B4E8C; letter-spacing: 0.3px; margin-bottom: 6px;">CHECK TWO &middot; HAVE I LEFT OUT A THIRD OPTION?</div>
+            <div style="font-size: 16px; color: #1a2340; line-height: 1.6;">Your brief argues guilty or not guilty by a standard you chose. Write down one possibility your framing excludes, then decide honestly whether you excluded it for a reason or because it was inconvenient. If it was inconvenient, address it.</div>
+        </div>
+
+        <div class="audit-card">
+            <div style="font-size: 13px; color: #3B4E8C; letter-spacing: 0.3px; margin-bottom: 6px;">CHECK THREE &middot; DOES MY EVIDENCE REACH AS FAR AS MY CLAIM?</div>
+            <div style="font-size: 16px; color: #1a2340; line-height: 1.6;">Take your strongest sentence and underline the claim, then underline the evidence. Say out loud what would have to be true for the second to establish the first. If you cannot say it, the connection is doing work you have not shown.</div>
+        </div>
+
+        <div class="audit-card">
+            <div style="font-size: 13px; color: #3B4E8C; letter-spacing: 0.3px; margin-bottom: 6px;">CHECK FOUR &middot; AM I ASSUMING WHAT I AM PROVING?</div>
+            <div style="font-size: 16px; color: #1a2340; line-height: 1.6;">Look at the standard of judgment you chose in Week 6&rsquo;s planning. Does your argument establish that standard, or does it start from it? Starting from it is allowed, as long as you say so plainly. Presenting it as a conclusion when it was an assumption is the circle.</div>
+        </div>
+
+        <!-- AI-awareness callout -->
+        <div style="background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #C0392B; border-radius: 6px; padding: 14px 20px; margin: 16px 0 0 0;">
+            <div style="font-size: 11px; color: #8A1F16; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI AND BROKEN REASONING</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Ask an AI tool to find the fallacies in a passage and it will return a confident list of names. Two known limits: it labels valid arguments as fallacies fairly often, because the surface pattern of a sound argument and a broken one can look identical, and it does not know which evidence your case actually needs, so it cannot supply the second half of an objection. If you use a tool here, treat every label it returns as a claim you have to verify against the passage yourself.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #3B4E8C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #3B4E8C; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Continue with Lesson 4.MS2.</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Everything you did today happened on the page, where you could reread. Lesson 4.MS2 takes the same skill into a hearing, where an argument goes past you once and delivery does work the words alone would not.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #3B4E8C; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Quick Write 12 (Canvas assignment).</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">When you steelman the opposing verdict, build it out of sound reasoning rather than a version you can knock over. If the strongest version you can write still contains one of today&rsquo;s six breaks, say so, and say what it would need.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; BEFORE YOU GO</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Weak arguments need more evidence. Broken arguments need a connection that was never there, and more evidence will not supply it. The diagnostic question sorts them: would twice as much of the same evidence fix this?</p>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">And when you find a break, do not stop at the name. Grant what is genuinely strong, say exactly where the reasoning fails, then name the evidence that would have to fill the gap. That is an objection. The name by itself is only a category.</p>
+    </div>
+
+</div>
+<!-- ===== /BODY WRAPPER ===== -->
+
+<!-- ===== FOOTER ===== -->
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ENGLISH 2 &middot; Quarter 2 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 4.MS1 &middot; When an Argument Breaks</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- ===== WIDGET RUNTIME ===== -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (row.dataset.fb || 'Right.') : (row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

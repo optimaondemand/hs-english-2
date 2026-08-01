@@ -27,6 +27,25 @@
     .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
     .widget-reset:hover { background: #FDF3E3; }
     .cite-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #3B4E8C; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+    .plag-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C0392B; border-radius: 6px; padding: 14px 18px; margin-bottom: 12px; }
+    /* ===== SOURCE WORK SHEET (student-entered, downloadable) ===== */
+    .sws-field { margin-bottom: 16px; }
+    .sws-label { font-size: 13px; color: #3B4E8C; letter-spacing: 0.3px; margin-bottom: 6px; }
+    .sws-help { font-size: 14px; color: #1a2340; line-height: 1.5; margin-bottom: 7px; }
+    .sws-field input[type="text"], .sws-field textarea { width: 100%; box-sizing: border-box; font-family: inherit; font-size: 15px; color: #0E1C42; background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 6px; padding: 9px 12px; line-height: 1.55; }
+    .sws-field input[type="text"]:focus, .sws-field textarea:focus { outline: none; border-color: #3B4E8C; }
+    .sws-field textarea { min-height: 76px; resize: vertical; }
+    .sws-count { font-size: 12px; color: #3B4E8C; margin-top: 5px; }
+    .sws-check { border-radius: 6px; padding: 10px 14px; font-size: 14px; line-height: 1.55; margin-top: 9px; display: none; }
+    .sws-check.show { display: block; }
+    .sws-check.pass { background: #FDF3E3; border-left: 3px solid #C7922C; color: #7A5A17; }
+    .sws-check.warn { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+    .sws-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 18px; }
+    .sws-btn { background: #0E1C42; color: #FFFFFF; border: none; border-radius: 8px; padding: 11px 20px; font-size: 15px; font-family: inherit; cursor: pointer; }
+    .sws-btn:hover { background: #1a2f63; }
+    .sws-btn.secondary { background: transparent; color: #C7922C; border: 1px solid #C7922C; }
+    .sws-btn.secondary:hover { background: #FDF3E3; }
+    .sws-note { font-size: 13px; color: #1a2340; line-height: 1.5; }
 </style>
 </head>
 <body>
@@ -96,9 +115,17 @@
             <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
             <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> cite a scholarly journal article from JStor in MLA in-text form and build its Works Cited entry.</div>
         </div>
-        <div style="display: flex; align-items: flex-start; gap: 12px;">
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
             <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
             <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain why you only ever cite a source you have actually read yourself.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">4</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> recognize the three ways a writer takes someone else&rsquo;s work without meaning to, and correct each one.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">5</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> build a paraphrase, a summary, and a citation from a source I gathered myself, and keep all three straight in my brief.</div>
         </div>
     </div>
 
@@ -194,6 +221,136 @@
         </div>
     </div>
 
+    <!-- ===== PART 5: WHEN CREDIT GOES MISSING ===== -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 5 &middot; THE THREE WAYS CREDIT GOES MISSING</div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 14px 0;">Almost no student sets out to steal someone else&rsquo;s work. What actually happens is quieter: a writer means to credit a source and does it incompletely, and the finished sentence claims more than the writer intended to claim. There are exactly three ways this happens, and they are worth knowing by name, because two of the three feel perfectly honest while you are doing them.</p>
+
+        <div class="plag-card">
+            <div style="font-size: 13px; color: #8A1F16; letter-spacing: 0.3px; margin-bottom: 6px;">ONE &middot; THE UNMARKED COPY</div>
+            <div style="font-size: 16px; color: #1a2340; line-height: 1.6;">The source&rsquo;s exact words appear in your paragraph with no quotation marks around them. This one stays a problem <em>even when you cite the source afterward</em>, because the citation credits the idea while the missing quotation marks still present the wording as yours. Quotation marks and citations do two different jobs. You need both.</div>
+        </div>
+
+        <div class="plag-card">
+            <div style="font-size: 13px; color: #8A1F16; letter-spacing: 0.3px; margin-bottom: 6px;">TWO &middot; THE UNCREDITED PARAPHRASE</div>
+            <div style="font-size: 16px; color: #1a2340; line-height: 1.6;">You put the idea entirely in your own words, correctly and well, and then you do not cite it. This is the most common one by a wide margin, and the one students are most surprised by. Rewording does not make an idea yours. If you did not think of it, it needs a citation, no matter how much of the language you changed.</div>
+        </div>
+
+        <div class="plag-card">
+            <div style="font-size: 13px; color: #8A1F16; letter-spacing: 0.3px; margin-bottom: 6px;">THREE &middot; THE HALF-CHANGED SENTENCE</div>
+            <div style="font-size: 16px; color: #1a2340; line-height: 1.6;">You keep the source&rsquo;s sentence and swap a few words for synonyms. The result reads like a paraphrase and functions like a copy: the structure, the order of ideas, and most of the phrasing still belong to the source. The test is simple. Close the source, then write the sentence. If you had to keep the original in front of you to produce it, it is not yet a paraphrase.</div>
+        </div>
+
+        <div style="background: #EEF1F8; border-left: 5px solid #3B4E8C; border-radius: 6px; padding: 16px 22px; margin: 16px 0 6px 0;">
+            <div style="font-size: 11px; color: #3B4E8C; margin-bottom: 10px;">&#9989; THE FIX &middot; THREE QUESTIONS BEFORE ANY BORROWED SENTENCE GOES IN</div>
+            <div style="font-size: 17px; color: #1a2340; line-height: 1.7;">1. <strong>Are any of these words the source&rsquo;s?</strong> If yes, they go inside quotation marks.<br />2. <strong>Is any of this thinking the source&rsquo;s?</strong> If yes, it gets a citation, in your words or theirs.<br />3. <strong>Could I have written this sentence with the source closed?</strong> If no, rewrite it with the source closed, then check it against the original for accuracy.</div>
+        </div>
+
+        <!-- evaluative widget: plagiarism discrimination -->
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9889; TRY IT &middot; WHICH HANDLING IS ACTUALLY CLEAN?</div>
+            <div class="widget-question">A student is working from one sentence in the model article: Bennett writes, on page 220, that &ldquo;pollution asks what was done, not what was known.&rdquo; Four students handle it four ways below. Three of them have a problem. Only one is clean.</div>
+
+            <div class="widget-row" data-correct="1" data-fb="Right. The wording is genuinely the student&rsquo;s own, built from the idea rather than from Bennett&rsquo;s sentence, and the citation credits Bennett for the thinking. Both jobs are done: the words are marked as the student&rsquo;s by being genuinely different, and the idea is marked as Bennett&rsquo;s by the citation." data-hint="Look again at all four. One of them changes the wording completely AND still credits Bennett. Which one manages both at once?">
+                <div class="widget-row-prompt">Which handling is clean?</div>
+                <div class="widget-options">
+                    <button data-choice="0">Under this standard, pollution asks what was done, not what was known (Bennett 220).</button>
+                    <button data-choice="1">For Bennett, the older standard measures guilt by the deed itself and treats the offender&rsquo;s awareness as beside the point (220).</button>
+                    <button data-choice="2">Bennett explains that pollution considers what was committed, not what was understood (220).</button>
+                    <button data-choice="3">The older standard measures guilt by the deed itself and treats the offender&rsquo;s awareness as beside the point.</button>
+                </div>
+            </div>
+
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 20px; margin-top: 4px;">
+            <div style="font-size: 13px; color: #3B4E8C; letter-spacing: 0.3px; margin-bottom: 10px;">WHY THE OTHER THREE FALL SHORT</div>
+            <div style="font-size: 15px; color: #1a2340; line-height: 1.6; margin-bottom: 8px;"><strong>The first</strong> is the unmarked copy, and it is the one most students would defend. The citation is there and it is correct, so the idea is credited. But nine of Bennett&rsquo;s exact words sit in the sentence with no quotation marks, which tells the reader the phrasing is the student&rsquo;s. Adding quotation marks around &ldquo;pollution asks what was done, not what was known&rdquo; fixes it completely.</div>
+            <div style="font-size: 15px; color: #1a2340; line-height: 1.6; margin-bottom: 8px;"><strong>The third</strong> is the half-changed sentence. Two words moved (&ldquo;committed&rdquo; for &ldquo;done,&rdquo; &ldquo;understood&rdquo; for &ldquo;known&rdquo;) and everything else stayed: the structure, the rhythm, the order of the two halves. A reader comparing it to Bennett would see one sentence, lightly repainted. The citation does not rescue it, because the sentence is still Bennett&rsquo;s.</div>
+            <div style="font-size: 15px; color: #1a2340; line-height: 1.6;"><strong>The fourth</strong> is the uncredited paraphrase, and notice what makes it tricky: the wording is excellent, fully the student&rsquo;s own, and it is exactly the same sentence as the correct answer. The only difference is the missing citation. That one missing detail turns good work into a claim that the student thought of Bennett&rsquo;s point.</div>
+        </div>
+    </div>
+
+    <!-- ===== PART 6: SOURCE WORK SHEET ===== -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 6 &middot; YOUR SOURCE WORK SHEET</div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Now do it with your own source. Open the JStor article you logged in Quick Write 13, the real one you read yourself, and work through the four steps below. Two of the steps ask for things that sound similar and are not:</p>
+
+        <div style="background: #FFFDF7; border: 1px solid #E7D6AE; border-radius: 8px; padding: 16px 20px; margin: 6px 0 16px 0;">
+            <div style="font-size: 15px; color: #1a2340; line-height: 1.65; margin-bottom: 8px;"><strong>A paraphrase</strong> restates <em>one passage</em> in your own words, at roughly the same length. Nothing is left out. You use it when the source&rsquo;s point matters but the source&rsquo;s exact wording does not.</div>
+            <div style="font-size: 15px; color: #1a2340; line-height: 1.65;"><strong>A summary</strong> compresses <em>the whole source</em> down to its central idea, in far fewer words. Most of the detail is deliberately left out. You use it when a reader needs to know what an article argues before you start quoting from it.</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 4px 0;">Fill in the work sheet, check it, then download it. The file you download is yours to keep and paste straight into your brief, so write these as if they were going in the final draft, because they are.</p>
+
+        <div class="optima-widget" id="sws">
+            <div class="widget-kicker">&#128221; SOURCE WORK SHEET &middot; PARAPHRASE, SUMMARY, CITATION</div>
+
+            <div class="sws-field">
+                <div class="sws-label">YOUR NAME (FOR THE FILE NAME)</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <input type="text" id="sws-last" placeholder="Last name" style="flex: 1; min-width: 150px;" />
+                    <input type="text" id="sws-first" placeholder="First name" style="flex: 1; min-width: 150px;" />
+                </div>
+                <div class="sws-count">Your file will be named using the course convention: LastName_FirstName_SourceWorkSheet_ELA10.</div>
+            </div>
+
+            <div class="sws-field">
+                <div class="sws-label">YOUR SOURCE</div>
+                <div class="sws-help">The author and title of the article you actually read, plus the page your passage is on.</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <input type="text" id="sws-source" placeholder="Author last name and article title" style="flex: 2; min-width: 220px;" />
+                    <input type="text" id="sws-page" placeholder="Page" style="flex: 0 1 90px; min-width: 80px;" />
+                </div>
+            </div>
+
+            <div class="sws-field">
+                <div class="sws-label">STEP 1 &middot; THE PASSAGE, COPIED EXACTLY</div>
+                <div class="sws-help">Type one or two sentences from your source exactly as they appear, word for word. Copying it accurately here is what lets you check your own paraphrase against it in a moment.</div>
+                <textarea id="sws-original" placeholder="The source&rsquo;s exact words&hellip;"></textarea>
+                <div class="sws-count" id="sws-original-count">0 words</div>
+            </div>
+
+            <div class="sws-field">
+                <div class="sws-label">STEP 2 &middot; YOUR PARAPHRASE OF THAT PASSAGE</div>
+                <div class="sws-help">Cover Step 1 with your hand, or scroll it out of view, and restate that passage in your own words at about the same length. Then look back and check that you did not change what it means.</div>
+                <textarea id="sws-paraphrase" placeholder="The same meaning, your words&hellip;"></textarea>
+                <div class="sws-count" id="sws-paraphrase-count">0 words</div>
+            </div>
+
+            <div class="sws-field">
+                <div class="sws-label">STEP 3 &middot; YOUR SUMMARY OF THE WHOLE ARTICLE</div>
+                <div class="sws-help">In one or two sentences, what does this article argue overall? Not this passage. The whole thing. Aim for 40 words or fewer.</div>
+                <textarea id="sws-summary" placeholder="The central idea of the entire source&hellip;"></textarea>
+                <div class="sws-count" id="sws-summary-count">0 words</div>
+            </div>
+
+            <div class="sws-field">
+                <div class="sws-label">STEP 4 &middot; YOUR IN-TEXT CITATION</div>
+                <div class="sws-help">The parenthetical citation you would put after the paraphrase, in the form you learned in Part 3 of this lesson.</div>
+                <input type="text" id="sws-citation" placeholder="(Author 000)" />
+            </div>
+
+            <div class="sws-check" id="sws-report"></div>
+
+            <div class="sws-actions">
+                <button class="sws-btn" id="sws-check-btn">Check my work sheet</button>
+                <button class="sws-btn secondary" id="sws-download-btn">&#11015;&#65039; Download my work sheet</button>
+                <button class="widget-reset" id="sws-clear">Clear</button>
+            </div>
+            <div class="sws-note" style="margin-top: 10px;">Nothing here is graded and nothing is sent anywhere. The check looks at your work the way a reader would and tells you what it notices. The download saves a plain text file to your device.</div>
+        </div>
+
+        <!-- AI-awareness callout -->
+        <div style="background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #C0392B; border-radius: 6px; padding: 14px 20px; margin: 16px 0 0 0;">
+            <div style="font-size: 11px; color: #8A1F16; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI AND PARAPHRASING</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">An AI tool will reword a passage on request, and the result usually reads smoothly. Two things it cannot do: confirm that the reworded version still means what the source meant, and tell you whether the idea needs a citation. It does not know which ideas are yours. A paraphrase produced by a tool and pasted in without a citation is the second problem in Part 5, whatever produced the wording.</div>
+        </div>
+    </div>
+
     <!-- What You'll Do Next -->
     <div style="background: #FFFFFF; border-top: 3px solid #3B4E8C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
@@ -211,12 +368,20 @@
                 <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Use the citation forms you learned today when you draft your argument section. Full directions are on the Quick Write 15 assignment page.</div>
             </div>
         </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-top: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #3B4E8C; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Keep the work sheet you downloaded.</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Save it into your ELA10 folder in OneDrive alongside your brief. The summary belongs early in your brief, where you first introduce the scholarship. The paraphrase and its citation belong inside whichever argument section uses that source.</div>
+            </div>
+        </div>
     </div>
 
     <!-- Wrap-up -->
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; BEFORE YOU GO</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Cite the play by its author, with no invented page number. Cite your journal article by author and page. And cite only what you have actually read yourself, in the edition you actually read it in. A citation is a small thing on the page and a large promise behind it.</p>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Cite the play by its author, with no invented page number. Cite your journal article by author and page. And cite only what you have actually read yourself, in the edition you actually read it in. A citation is a small thing on the page and a large promise behind it.</p>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">The three ways credit goes missing are worth carrying past this brief. Quotation marks mark whose <em>words</em> these are. A citation marks whose <em>thinking</em> it is. You will need both for the rest of your school career, and the habit is easier to build now, on one article you have read closely, than later on twenty you have skimmed.</p>
     </div>
 
 </div>
@@ -266,6 +431,210 @@
       rf.textContent = text;
       return;
     }
+  });
+})();
+</script>
+
+<!-- ===== SOURCE WORK SHEET RUNTIME ===== -->
+<script>
+(function () {
+  var root = document.getElementById('sws');
+  if (!root) return;
+
+  var f = {
+    last: document.getElementById('sws-last'),
+    first: document.getElementById('sws-first'),
+    source: document.getElementById('sws-source'),
+    page: document.getElementById('sws-page'),
+    original: document.getElementById('sws-original'),
+    paraphrase: document.getElementById('sws-paraphrase'),
+    summary: document.getElementById('sws-summary'),
+    citation: document.getElementById('sws-citation')
+  };
+  var report = document.getElementById('sws-report');
+
+  function words(s) {
+    return (s || '')
+      .toLowerCase()
+      .replace(/[‘’“”]/g, "'")
+      .replace(/[^a-z0-9' ]+/g, ' ')
+      .split(/\s+/)
+      .filter(function (w) { return w.length > 0; });
+  }
+
+  // Longest run of consecutive words shared by the two texts.
+  function longestRun(a, b) {
+    if (!a.length || !b.length) return { len: 0, phrase: '' };
+    var best = 0, bestStart = 0;
+    var prev = new Array(b.length + 1).fill(0);
+    for (var i = 1; i <= a.length; i++) {
+      var cur = new Array(b.length + 1).fill(0);
+      for (var j = 1; j <= b.length; j++) {
+        if (a[i - 1] === b[j - 1]) {
+          cur[j] = prev[j - 1] + 1;
+          if (cur[j] > best) { best = cur[j]; bestStart = i - cur[j]; }
+        }
+      }
+      prev = cur;
+    }
+    return { len: best, phrase: a.slice(bestStart, bestStart + best).join(' ') };
+  }
+
+  // How much of the shorter text follows the other's word order, consecutive or not.
+  // Catches the half-changed sentence: synonyms swapped every other word leave the
+  // source's skeleton intact, which no consecutive-run check would notice.
+  function orderOverlap(a, b) {
+    if (!a.length || !b.length) return 0;
+    var prev = new Array(b.length + 1).fill(0);
+    for (var i = 1; i <= a.length; i++) {
+      var cur = new Array(b.length + 1).fill(0);
+      for (var j = 1; j <= b.length; j++) {
+        cur[j] = a[i - 1] === b[j - 1] ? prev[j - 1] + 1 : Math.max(prev[j], cur[j - 1]);
+      }
+      prev = cur;
+    }
+    return prev[b.length] / Math.min(a.length, b.length);
+  }
+
+  function count(el, out) {
+    el.addEventListener('input', function () {
+      var n = words(el.value).length;
+      out.textContent = n + (n === 1 ? ' word' : ' words');
+    });
+  }
+  count(f.original, document.getElementById('sws-original-count'));
+  count(f.paraphrase, document.getElementById('sws-paraphrase-count'));
+  count(f.summary, document.getElementById('sws-summary-count'));
+
+  function show(kind, lines) {
+    report.className = 'sws-check show ' + kind;
+    report.innerHTML = lines.map(function (l) { return '<div style="margin-bottom:6px;">' + l + '</div>'; }).join('');
+  }
+
+  document.getElementById('sws-check-btn').addEventListener('click', function () {
+    var ow = words(f.original.value);
+    var pw = words(f.paraphrase.value);
+    var sw = words(f.summary.value);
+    var notes = [], problems = 0;
+
+    if (ow.length < 8) {
+      show('warn', ['Start with Step 1. Copy at least one full sentence from your source exactly, then the rest of the sheet has something to check against.']);
+      return;
+    }
+
+    // --- Paraphrase checks ---
+    if (pw.length < 5) {
+      notes.push('<strong>Step 2 is still empty.</strong> Write the paraphrase before checking, since it is the part most worth checking.');
+      problems++;
+    } else {
+      var run = longestRun(ow, pw);
+      var overlap = orderOverlap(ow, pw);
+      var pct = Math.round(overlap * 100);
+      if (run.len >= 6) {
+        notes.push('<strong>Step 2 needs another pass.</strong> Your paraphrase repeats ' + run.len + ' of the source&rsquo;s words in a row: &ldquo;' + run.phrase + '.&rdquo; Those words are the source&rsquo;s, so either mark them as a quotation or write the point again in your own phrasing.');
+        problems++;
+      } else if (overlap >= 0.6) {
+        notes.push('<strong>Step 2 is still following the source&rsquo;s sentence.</strong> No long stretch matches word for word, but about ' + pct + '% of your wording still runs in the source&rsquo;s order, which is the pattern of the half-changed sentence in Part 5: synonyms swapped, skeleton kept. Close the source, write the point from memory, then reopen it to check your accuracy.');
+        problems++;
+      } else if (run.len >= 4 || overlap >= 0.42) {
+        notes.push('<strong>Step 2 is close, and worth one more look.</strong> ' + (run.len >= 4 ? 'A ' + run.len + '-word stretch still matches the source (&ldquo;' + run.phrase + '&rdquo;). ' : '') + 'Roughly ' + pct + '% of your wording tracks the source&rsquo;s order. That can be perfectly fine when a passage is technical and the terms have no synonyms, so judge it yourself: is your sentence built from the idea, or from the source&rsquo;s sentence? If any phrasing is really the source&rsquo;s, quotation marks make it honest.');
+        problems++;
+      } else {
+        notes.push('<strong>Step 2 reads as your own wording.</strong> No stretch of four or more words matches the source, and only about ' + pct + '% of your wording tracks its order. Now check the half no tool can check for you: does your version still mean exactly what the source meant, with nothing added and nothing quietly dropped?');
+      }
+      if (pw.length < ow.length * 0.5) {
+        notes.push('Your paraphrase is much shorter than the passage (' + pw.length + ' words against ' + ow.length + '). That usually means something got dropped. A paraphrase keeps everything and changes the words. Compressing belongs in Step 3.');
+        problems++;
+      }
+    }
+
+    // --- Summary checks ---
+    if (sw.length < 5) {
+      notes.push('<strong>Step 3 is still empty.</strong> One or two sentences on what the whole article argues.');
+      problems++;
+    } else {
+      if (sw.length > 45) {
+        notes.push('<strong>Step 3 is running long</strong> at ' + sw.length + ' words. A summary that approaches the length of the passage it came from has stopped summarizing. Cut it to the one claim the article is built to prove.');
+        problems++;
+      } else {
+        notes.push('<strong>Step 3 is at summary length</strong> (' + sw.length + ' words). Read it once more and ask whether it states what the article <em>argues</em>, rather than what it is <em>about</em>. A topic is not a claim.');
+      }
+      var srun = longestRun(ow, sw);
+      if (srun.len >= 5) {
+        notes.push('Your summary borrows ' + srun.len + ' consecutive words from the passage: &ldquo;' + srun.phrase + '.&rdquo; A summary of the whole article should not lean on the wording of one sentence inside it.');
+        problems++;
+      }
+    }
+
+    // --- Citation check ---
+    var cite = (f.citation.value || '').trim();
+    if (!cite) {
+      notes.push('<strong>Step 4 is still empty.</strong> Even a perfect paraphrase becomes the second problem in Part 5 without it.');
+      problems++;
+    } else if (cite.indexOf('(') === -1 || cite.indexOf(')') === -1) {
+      notes.push('<strong>Step 4 needs its parentheses.</strong> An MLA in-text citation sits inside them, like (Bennett 220).');
+      problems++;
+    } else if (!/\d/.test(cite)) {
+      notes.push('<strong>Step 4 has no page number.</strong> A journal article has stable pages, so unlike the play, this citation needs one.');
+      problems++;
+    } else if (/,/.test(cite)) {
+      notes.push('<strong>Step 4 has a comma in it.</strong> MLA puts no comma between the author and the page: (Bennett 220), not (Bennett, 220).');
+      problems++;
+    } else {
+      notes.push('<strong>Step 4 has the right shape:</strong> author and page, no comma, inside parentheses.');
+    }
+
+    show(problems > 0 ? 'warn' : 'pass', notes);
+  });
+
+  document.getElementById('sws-download-btn').addEventListener('click', function () {
+    var last = (f.last.value || '').trim().replace(/[^A-Za-z-]/g, '') || 'LastName';
+    var first = (f.first.value || '').trim().replace(/[^A-Za-z-]/g, '') || 'FirstName';
+    var L = [];
+    L.push('SOURCE WORK SHEET');
+    L.push('English 2 (Kings and Community) . Module 2 . Week 7');
+    L.push('Student: ' + first + ' ' + last);
+    L.push('');
+    L.push('SOURCE: ' + (f.source.value || '[not entered]'));
+    L.push('PAGE: ' + (f.page.value || '[not entered]'));
+    L.push('');
+    L.push('--- STEP 1 . THE PASSAGE, COPIED EXACTLY ---');
+    L.push(f.original.value || '[not entered]');
+    L.push('');
+    L.push('--- STEP 2 . MY PARAPHRASE OF THAT PASSAGE ---');
+    L.push(f.paraphrase.value || '[not entered]');
+    L.push('');
+    L.push('--- STEP 3 . MY SUMMARY OF THE WHOLE ARTICLE ---');
+    L.push(f.summary.value || '[not entered]');
+    L.push('');
+    L.push('--- STEP 4 . MY IN-TEXT CITATION ---');
+    L.push(f.citation.value || '[not entered]');
+    L.push('');
+    L.push('--- WHERE THESE GO IN MY BRIEF ---');
+    L.push('The summary goes early, where I first introduce the scholarship.');
+    L.push('The paraphrase and its citation go inside the argument section that uses this source.');
+    L.push('The exact passage stays here, so I can check my paraphrase against it again while revising.');
+    L.push('');
+    L.push('Reminder: quotation marks mark whose words these are. A citation marks whose thinking it is.');
+    L.push('Every source on my Works Cited is one I opened and read myself.');
+
+    var blob = new Blob([L.join('\r\n')], { type: 'text/plain;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = last + '_' + first + '_SourceWorkSheet_ELA10.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  });
+
+  document.getElementById('sws-clear').addEventListener('click', function () {
+    Object.keys(f).forEach(function (k) { f[k].value = ''; });
+    ['sws-original-count', 'sws-paraphrase-count', 'sws-summary-count'].forEach(function (id) {
+      document.getElementById(id).textContent = '0 words';
+    });
+    report.className = 'sws-check';
+    report.innerHTML = '';
   });
 })();
 </script>

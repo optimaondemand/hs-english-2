@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>English 2 &mdash; Lesson 4.MS2</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    /* ===== WIDGET CSS (ELA gold/indigo palette; no green/teal) ===== */
+    .optima-widget { background: linear-gradient(135deg, #EEF1F8 0%, #F4F6FA 100%); border: 1px solid #C7D0E5; border-left: 5px solid #3B4E8C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #3B4E8C; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #3B4E8C; }
+    .widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+    .widget-options button.correct { background: #FDF3E3; border-color: #C7922C; color: #7A5A17; }
+    .widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+    .widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+    .widget-feedback.show { display: block; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #FDF3E3; border-left: 3px solid #C7922C; color: #7A5A17; }
+    .row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+    .widget-reset:hover { background: #FDF3E3; }
+    .distort-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C0392B; border-radius: 6px; padding: 14px 18px; margin-bottom: 12px; }
+    /* ===== LISTENING SHEET (student-entered, downloadable) ===== */
+    .ls-field { margin-bottom: 16px; }
+    .ls-label { font-size: 13px; color: #3B4E8C; letter-spacing: 0.3px; margin-bottom: 6px; }
+    .ls-help { font-size: 14px; color: #1a2340; line-height: 1.5; margin-bottom: 7px; }
+    .ls-field input[type="text"], .ls-field textarea { width: 100%; box-sizing: border-box; font-family: inherit; font-size: 15px; color: #0E1C42; background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 6px; padding: 9px 12px; line-height: 1.55; }
+    .ls-field input[type="text"]:focus, .ls-field textarea:focus { outline: none; border-color: #3B4E8C; }
+    .ls-field textarea { min-height: 66px; resize: vertical; }
+    .ls-breaks { display: flex; flex-direction: column; gap: 7px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; }
+    .ls-breaks label { font-size: 15px; color: #1a2340; line-height: 1.5; display: flex; align-items: flex-start; gap: 9px; cursor: pointer; }
+    .ls-breaks input { margin-top: 4px; flex-shrink: 0; }
+    .ls-check { border-radius: 6px; padding: 10px 14px; font-size: 14px; line-height: 1.55; margin-top: 9px; display: none; }
+    .ls-check.show { display: block; }
+    .ls-check.pass { background: #FDF3E3; border-left: 3px solid #C7922C; color: #7A5A17; }
+    .ls-check.warn { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+    .ls-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 18px; }
+    .ls-btn { background: #0E1C42; color: #FFFFFF; border: none; border-radius: 8px; padding: 11px 20px; font-size: 15px; font-family: inherit; cursor: pointer; }
+    .ls-btn:hover { background: #1a2f63; }
+    .ls-btn.secondary { background: transparent; color: #C7922C; border: 1px solid #C7922C; }
+    .ls-btn.secondary:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- ===== HEADER ===== -->
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ENGLISH 2</div>
+    <div style="font-size: 18px; color: #55c8e8;">Quarter 2 &middot; Module 2: Oedipus the King &mdash; The Trial of a King &middot; Lesson 4.MS2 &middot; Student Page</div>
+</div>
+
+<!-- ===== METADATA STRIP ===== -->
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 4px;">Quarter / Module</div>
+        <div style="font-size: 17px; color: #0e1c42;">Q2 &middot; Module 2</div>
+        <div style="font-size: 12px; color: #1a2340;">Oedipus the King: The Trial of a King</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 4px;">Week / Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Week 4</div>
+        <div style="font-size: 12px; color: #1a2340;">Lesson 4.MS2</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 4px;">Anchor Text</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Oedipus the King</div>
+        <div style="font-size: 12px; color: #1a2340;">Sophocles, trans. F. Storr (public domain)</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Kings and Community</div>
+    </div>
+</div>
+
+<!-- ===== BODY WRAPPER ===== -->
+<div style="padding: 24px 34px;">
+
+    <!-- Title strip -->
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 4.MS2</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Weighing What You Hear</div>
+        <div style="font-size: 16px; color: #1a2340;">Lesson &middot; Week 4 &middot; Listening &amp; Evaluation</div>
+    </div>
+
+    <!-- Today's Focus -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY&rsquo;S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">On the page you can reread a sentence until you catch what is wrong with it. In a hearing, it goes past you once, and the speaker decides how fast.</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">Lesson 4.MS1 gave you six ways reasoning breaks and a method for objecting to them. All of that work happened on paper. This lesson takes the same skill somewhere harder. In Week 9 you will sit as a member of the Council while classmates deliver closing arguments, and you will have to weigh what you hear in real time, without a text in front of you. Listening well is a technique, not a personality trait, and it can be practiced.</div>
+    </div>
+
+    <!-- Objectives -->
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain how delivery can make an argument sound stronger than its reasoning is.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> recognize four ways evidence gets exaggerated or distorted when it is spoken aloud.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> track a spoken argument on a listening sheet and turn my notes into one fair, answerable question.</div>
+        </div>
+    </div>
+
+    <!-- ===== PART 1 ===== -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; WHAT CHANGES WHEN AN ARGUMENT IS SPOKEN</div>
+
+        <!-- reflective check-in -->
+        <div class="optima-widget ow-reflect">
+            <div class="widget-kicker">&#9889; QUICK CHECK-IN</div>
+            <div class="widget-question">Think of a speaker who convinced you at the time, and whose argument you were less sure about an hour later. What do you think was doing the persuading while you were listening? (No wrong answer.)</div>
+            <div class="widget-options">
+                <button data-response="Certainty is the most portable persuasive tool there is, and it attaches equally well to sound arguments and broken ones. Noticing when you are responding to certainty rather than reasoning is most of this lesson.">&#127908; How certain they sounded</button>
+                <button data-response="Pace is a real advantage for a speaker. A gap that would be obvious on the page can pass unnoticed if the next sentence arrives fast enough. Slowing an argument down in your notes is how you get that advantage back.">&#9201;&#65039; They moved fast and I never got to think about any one part</button>
+                <button data-response="Repetition creates a feeling of having been proved, because a claim you have heard four times feels established. Counting how many times something was asserted, and how many times it was supported, separates the two.">&#128257; They kept coming back to the same point until it felt settled</button>
+            </div>
+            <div class="widget-feedback"></div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">A listener is at a genuine structural disadvantage, and it is worth being clear that this is not a failure of attention. Three things are true of a spoken argument that are not true of a written one. You cannot go back. You cannot control the pace. And you are receiving tone, volume, eye contact, and pauses alongside the words, all of which affect how convinced you feel without changing whether the argument is sound.</p>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 14px 0;">The remedy is to stop trying to evaluate while you listen, and instead <em>record the argument&rsquo;s parts</em> as they go by, saving the judgment for afterward. The four columns below are what to write down. Separating them is what makes the fourth column possible, and the fourth column is where broken reasoning shows up.</p>
+
+        <!-- ONE MEANINGFUL VISUAL: a worked, filled-in listening sheet -->
+        <div style="background: #FFFDF7; border: 1px solid #E7D6AE; border-radius: 8px; padding: 20px 22px; margin: 0 0 16px 0;">
+            <div style="font-size: 11px; color: #c7922c; margin-bottom: 6px; letter-spacing: 0.4px;">&#128221; A LISTENING SHEET, FILLED IN WHILE HEARING ONE MINUTE OF ARGUMENT</div>
+            <div style="font-size: 14px; color: #1a2340; line-height: 1.5; margin-bottom: 14px; font-style: italic;">The speaker: a classmate arguing that Oedipus should be found not guilty because he acted without knowledge.</div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+                <div style="flex: 1; min-width: 210px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #3B4E8C; border-radius: 6px; padding: 13px 15px;">
+                    <div style="font-size: 12px; color: #3B4E8C; letter-spacing: 0.3px; margin-bottom: 6px;">1 &middot; THE CLAIM</div>
+                    <div style="font-size: 15px; color: #1a2340; line-height: 1.55;">Not guilty. Guilt requires knowing, and he did not know.</div>
+                </div>
+                <div style="flex: 1; min-width: 210px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #3B4E8C; border-radius: 6px; padding: 13px 15px;">
+                    <div style="font-size: 12px; color: #3B4E8C; letter-spacing: 0.3px; margin-bottom: 6px;">2 &middot; EVIDENCE OFFERED</div>
+                    <div style="font-size: 15px; color: #1a2340; line-height: 1.55;">The curse on himself (he would not curse himself if he knew). Jocasta&rsquo;s account of the exposure. One scholar on pollution.</div>
+                </div>
+                <div style="flex: 1; min-width: 210px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #3B4E8C; border-radius: 6px; padding: 13px 15px;">
+                    <div style="font-size: 12px; color: #3B4E8C; letter-spacing: 0.3px; margin-bottom: 6px;">3 &middot; REASONING CONNECTING THEM</div>
+                    <div style="font-size: 15px; color: #1a2340; line-height: 1.55;">Said quickly, once: a person cannot be blamed for what they could not have known.</div>
+                </div>
+                <div style="flex: 1; min-width: 210px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C0392B; border-radius: 6px; padding: 13px 15px;">
+                    <div style="font-size: 12px; color: #8A1F16; letter-spacing: 0.3px; margin-bottom: 6px;">4 &middot; ASSERTED, NEVER SUPPORTED</div>
+                    <div style="font-size: 15px; color: #1a2340; line-height: 1.55;">That the Greeks shared our standard. Said three times as though agreed, never argued for. Also &ldquo;every scholar accepts this.&rdquo;</div>
+                </div>
+            </div>
+
+            <div style="font-size: 15px; color: #1a2340; line-height: 1.6; margin-top: 14px;"><strong>What the sheet made visible:</strong> columns 1 and 2 were strong, and while listening the whole thing felt strong because of them. Column 3 got one rushed sentence carrying the entire argument. Column 4 is where the case actually rests, and nothing in it was ever supported. None of that was noticeable in the moment. All of it is obvious in four columns.</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Column 4 is the one students leave blank, and it is the one that matters most. If you finish listening with nothing written in it, you were almost certainly following the speaker rather than weighing them.</p>
+    </div>
+
+    <!-- ===== PART 2 ===== -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; FOUR WAYS SPOKEN EVIDENCE GETS STRETCHED</div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 14px 0;">Broken reasoning is one problem. Overstated evidence is a different one, and it is easier to get away with out loud, because a listener cannot check anything. These four are the common moves. Notice that in all four, nothing said is outright false.</p>
+
+        <div class="distort-card">
+            <div style="font-size: 13px; color: #8A1F16; letter-spacing: 0.3px; margin-bottom: 6px;">THE NUMBER WITH NO HOME</div>
+            <div style="font-size: 16px; color: #1a2340; line-height: 1.6;">A figure arrives with no source attached. &ldquo;Most scholars,&rdquo; &ldquo;nine out of ten historians,&rdquo; &ldquo;the vast majority of readings.&rdquo; Numbers feel like evidence, and an unsourced number is only an assertion wearing evidence&rsquo;s clothes. The question to ask is simply: according to whom, counted how?</div>
+        </div>
+
+        <div class="distort-card">
+            <div style="font-size: 13px; color: #8A1F16; letter-spacing: 0.3px; margin-bottom: 6px;">THE QUOTATION WITH ITS QUALIFIER REMOVED</div>
+            <div style="font-size: 16px; color: #1a2340; line-height: 1.6;">A source who wrote &ldquo;this may suggest, in some cases, that intent mattered less&rdquo; is quoted aloud as &ldquo;intent mattered less.&rdquo; Every remaining word is genuinely the source&rsquo;s. The hedges that made it a careful claim are gone, and a cautious scholar has been turned into a confident one who agrees with the speaker.</div>
+        </div>
+
+        <div class="distort-card">
+            <div style="font-size: 13px; color: #8A1F16; letter-spacing: 0.3px; margin-bottom: 6px;">THE TRUE FACT THAT DOES NOT BEAR ON IT</div>
+            <div style="font-size: 16px; color: #1a2340; line-height: 1.6;">A verifiable, accurate detail is offered in support of a claim it does not actually touch. &ldquo;Thebes was suffering terribly, with the crops failing and the dead unburied.&rdquo; All true, vividly delivered, and it establishes nothing about who killed Laius. This one is hard to catch because the impulse to object feels like objecting to a fact.</div>
+        </div>
+
+        <div class="distort-card">
+            <div style="font-size: 13px; color: #8A1F16; letter-spacing: 0.3px; margin-bottom: 6px;">THE CONSENSUS NOBODY POLLED</div>
+            <div style="font-size: 16px; color: #1a2340; line-height: 1.6;">&ldquo;Everyone accepts that&hellip;,&rdquo; &ldquo;no serious reader thinks&hellip;,&rdquo; &ldquo;we all know&hellip;&rdquo; These phrases do not add evidence. They make disagreeing feel like being the only person in the room who has not understood, which is a social cost, not a logical one.</div>
+        </div>
+
+        <!-- evaluative widget -->
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9889; TRY IT &middot; WHAT WENT WRONG WITH THE EVIDENCE?</div>
+            <div class="widget-question">A speaker says: &ldquo;The scholarship is settled on this. As one leading classicist puts it, pollution operates without regard to knowledge. Thebes was dying, the fields were barren, children were going unburied in the streets. This is not a close question.&rdquo; The article the speaker read actually says pollution &ldquo;may, in certain ritual contexts, operate without regard to knowledge.&rdquo; What is the most serious problem here?</div>
+
+            <div class="widget-row" data-correct="3" data-fb="Right. The qualifiers are the whole difference between a careful scholarly claim and the sweeping one the speaker needs. &lsquo;May, in certain ritual contexts&rsquo; leaves the question genuinely open; without those words the source appears to settle it. Every remaining word is the scholar&rsquo;s, which is exactly what makes this hard to catch and serious when it happens." data-hint="Three of these describe things that really are wrong with the passage. Ask which one changes what the evidence actually establishes, rather than how the evidence feels.">
+                <div class="widget-row-prompt">Which is the most serious problem?</div>
+                <div class="widget-options">
+                    <button data-choice="0">The suffering of Thebes is described vividly but has no bearing on whether knowledge affects guilt.</button>
+                    <button data-choice="1">&ldquo;The scholarship is settled&rdquo; and &ldquo;not a close question&rdquo; assert a consensus without offering any evidence that one exists.</button>
+                    <button data-choice="2">The classicist is called &ldquo;leading&rdquo; without being named, so the citation cannot be checked.</button>
+                    <button data-choice="3">The quotation has had &ldquo;may, in certain ritual contexts&rdquo; removed, so a conditional claim is presented as an unconditional one.</button>
+                </div>
+            </div>
+
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 20px; margin-top: 4px;">
+            <div style="font-size: 13px; color: #3B4E8C; letter-spacing: 0.3px; margin-bottom: 10px;">WHY THE OTHER THREE FALL SHORT AS ANSWERS</div>
+            <div style="font-size: 15px; color: #1a2340; line-height: 1.6; margin-bottom: 8px;">All three are real problems, and in a hearing you might raise any of them. The question asked which is <em>most serious</em>, and the test for that is whether the problem changes what the evidence establishes or only how it feels.</div>
+            <div style="font-size: 15px; color: #1a2340; line-height: 1.6; margin-bottom: 8px;"><strong>The first and second</strong> are the true-but-irrelevant fact and the unpolled consensus. Strip both out and the argument loses atmosphere and social pressure, but its actual evidence is unchanged. They inflate the delivery, not the proof.</div>
+            <div style="font-size: 15px; color: #1a2340; line-height: 1.6;"><strong>The third</strong> is a genuine citation failure worth raising. But notice that fixing it would not help: if the classicist were named, the quotation attributed to them would still say something they did not say. The unnamed source is a problem with checking the evidence. The removed qualifier is a problem with the evidence itself.</div>
+        </div>
+    </div>
+
+    <!-- ===== PART 3 ===== -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; YOUR LISTENING SHEET</div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Now use it on a real speaker. Choose whichever of these you can get to:</p>
+
+        <div style="background: #EEF1F8; border-left: 5px solid #3B4E8C; border-radius: 6px; padding: 16px 22px; margin: 0 0 16px 0;">
+            <div style="font-size: 17px; color: #1a2340; line-height: 1.7;"><strong>Option A.</strong> A classmate&rsquo;s recorded opening theory from the Week 5 discussion, if they posted the audio version.<br /><strong>Option B.</strong> Your own recorded closing-argument rehearsal. Listening to yourself is uncomfortable and unusually useful, because you know what you meant and can hear whether you actually said it.<br /><strong>Option C.</strong> Any recorded argument you can find on a question you care about, in or out of school.</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 14px 0;">Fill the sheet in <em>while</em> you listen, not afterward, and resist the urge to judge as you go. Then check it and download it. Bring it with you to the Week 9 tribunal, where you will use the same four columns on live closing arguments.</p>
+
+        <div class="optima-widget" id="ls">
+            <div class="widget-kicker">&#127911; LISTENING SHEET &middot; WEIGH A SPOKEN ARGUMENT</div>
+
+            <div class="ls-field">
+                <div class="ls-label">YOUR NAME (FOR THE FILE NAME)</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <input type="text" id="ls-last" placeholder="Last name" style="flex: 1; min-width: 150px;" />
+                    <input type="text" id="ls-first" placeholder="First name" style="flex: 1; min-width: 150px;" />
+                </div>
+            </div>
+
+            <div class="ls-field">
+                <div class="ls-label">WHO OR WHAT YOU LISTENED TO</div>
+                <input type="text" id="ls-speaker" placeholder="Speaker and what they were arguing" />
+            </div>
+
+            <div class="ls-field">
+                <div class="ls-label">COLUMN 1 &middot; THE CLAIM</div>
+                <div class="ls-help">In one sentence, what did the speaker want you to accept?</div>
+                <textarea id="ls-claim" placeholder="The claim, in your words&hellip;"></textarea>
+            </div>
+
+            <div class="ls-field">
+                <div class="ls-label">COLUMN 2 &middot; EVIDENCE OFFERED</div>
+                <div class="ls-help">List what they actually put forward. Quotations, sources, events, numbers. Just list it, do not judge it yet.</div>
+                <textarea id="ls-evidence" placeholder="What they offered&hellip;"></textarea>
+            </div>
+
+            <div class="ls-field">
+                <div class="ls-label">COLUMN 3 &middot; THE REASONING CONNECTING THEM</div>
+                <div class="ls-help">What did they say to link the evidence to the claim? If they never did, write that. A blank column 3 is a finding, not a gap in your notes.</div>
+                <textarea id="ls-reasoning" placeholder="How they connected the two&hellip;"></textarea>
+            </div>
+
+            <div class="ls-field">
+                <div class="ls-label">COLUMN 4 &middot; ASSERTED BUT NEVER SUPPORTED</div>
+                <div class="ls-help">The one that matters. What did they state as though it were agreed, without ever arguing for it? Listen for anything repeated confidently more than twice.</div>
+                <textarea id="ls-unsupported" placeholder="Stated as settled, never established&hellip;"></textarea>
+            </div>
+
+            <div class="ls-field">
+                <div class="ls-label">DID YOU HEAR ANY OF THESE? (OPTIONAL)</div>
+                <div class="ls-breaks">
+                    <label><input type="checkbox" data-break="Going after the person" /> Going after the person instead of the claim</label>
+                    <label><input type="checkbox" data-break="Two doors when there are more" /> Two options presented when there were more</label>
+                    <label><input type="checkbox" data-break="Too much from too little" /> A large conclusion drawn from very little</label>
+                    <label><input type="checkbox" data-break="After it, so because of it" /> One thing assumed to have caused another because it came first</label>
+                    <label><input type="checkbox" data-break="The circle" /> The conclusion used as one of its own reasons</label>
+                    <label><input type="checkbox" data-break="Because of who said it" /> Standing offered in place of evidence</label>
+                    <label><input type="checkbox" data-break="An unsourced number" /> A number or proportion with no source</label>
+                    <label><input type="checkbox" data-break="A quotation stripped of its qualifier" /> A quotation that seemed stronger than the source would allow</label>
+                    <label><input type="checkbox" data-break="A true fact that did not bear on the claim" /> A true detail that did not actually touch the claim</label>
+                    <label><input type="checkbox" data-break="An unpolled consensus" /> An appeal to what &ldquo;everyone&rdquo; accepts</label>
+                </div>
+            </div>
+
+            <div class="ls-field">
+                <div class="ls-label">IF YOU CHECKED ANYTHING ABOVE &middot; WHAT WOULD THE ARGUMENT NEED IN ORDER TO WORK?</div>
+                <div class="ls-help">This is the half of an objection that does the damage. Name the specific evidence that would have to be supplied.</div>
+                <textarea id="ls-needed" placeholder="What is missing, and what would fill it&hellip;"></textarea>
+            </div>
+
+            <div class="ls-field">
+                <div class="ls-label">YOUR ONE QUESTION FOR THE SPEAKER</div>
+                <div class="ls-help">One question, honestly asked, that they could actually answer. Not a trap and not a speech.</div>
+                <textarea id="ls-question" placeholder="Your question&hellip;"></textarea>
+            </div>
+
+            <div class="ls-check" id="ls-report"></div>
+
+            <div class="ls-actions">
+                <button class="ls-btn" id="ls-check-btn">Check my listening sheet</button>
+                <button class="ls-btn secondary" id="ls-download-btn">&#11015;&#65039; Download my listening sheet</button>
+                <button class="widget-reset" id="ls-clear">Clear</button>
+            </div>
+            <div style="font-size: 13px; color: #1a2340; line-height: 1.5; margin-top: 10px;">Nothing here is graded and nothing is sent anywhere. The download saves a plain text file to your device, ready to bring to the tribunal.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #3B4E8C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #3B4E8C; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Keep the sheet you downloaded.</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Save it into your ELA10 folder in OneDrive. You will want the four columns in front of you at the Week 9 tribunal, and again in VR-8.02, where you practice answering hostile questions rather than asking them.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #3B4E8C; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Turn the sheet on yourself before Week 8.</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">When you rehearse your own closing argument, record it and fill in a sheet as though a stranger were speaking. Column 4 is the one to watch. What are you asserting confidently and never actually supporting?</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; BEFORE YOU GO</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Do not evaluate while you listen. Record the parts, then judge afterward. Confidence, pace, and repetition all make an argument feel proved, and none of them are proof.</p>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Fair listening is not the same as agreeable listening. The most respectful thing you can do for a speaker is take their argument seriously enough to find out exactly where it holds and exactly where it does not, and then ask them about it.</p>
+    </div>
+
+</div>
+<!-- ===== /BODY WRAPPER ===== -->
+
+<!-- ===== FOOTER ===== -->
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ENGLISH 2 &middot; Quarter 2 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 4.MS2 &middot; Weighing What You Hear</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- ===== WIDGET RUNTIME ===== -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (row.dataset.fb || 'Right.') : (row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+<!-- ===== LISTENING SHEET RUNTIME ===== -->
+<script>
+(function () {
+  var root = document.getElementById('ls');
+  if (!root) return;
+
+  var f = {
+    last: document.getElementById('ls-last'),
+    first: document.getElementById('ls-first'),
+    speaker: document.getElementById('ls-speaker'),
+    claim: document.getElementById('ls-claim'),
+    evidence: document.getElementById('ls-evidence'),
+    reasoning: document.getElementById('ls-reasoning'),
+    unsupported: document.getElementById('ls-unsupported'),
+    needed: document.getElementById('ls-needed'),
+    question: document.getElementById('ls-question')
+  };
+  var report = document.getElementById('ls-report');
+
+  function wc(s) { return (s || '').trim().split(/\s+/).filter(function (w) { return w.length > 0; }).length; }
+  function checkedBreaks() {
+    return Array.prototype.slice.call(root.querySelectorAll('.ls-breaks input:checked'))
+      .map(function (c) { return c.dataset['break']; });
+  }
+  function show(kind, lines) {
+    report.className = 'ls-check show ' + kind;
+    report.innerHTML = lines.map(function (l) { return '<div style="margin-bottom:6px;">' + l + '</div>'; }).join('');
+  }
+
+  document.getElementById('ls-check-btn').addEventListener('click', function () {
+    var notes = [], problems = 0;
+    var breaks = checkedBreaks();
+
+    if (wc(f.claim.value) < 3 || wc(f.evidence.value) < 3) {
+      show('warn', ['Fill in columns 1 and 2 first. Until the claim and the evidence are written down separately, there is nothing to weigh.']);
+      return;
+    }
+
+    // Column 4 is the whole point of the sheet.
+    if (wc(f.unsupported.value) < 3) {
+      notes.push('<strong>Column 4 is empty.</strong> That is the column this sheet exists for. Go back through what you heard and find at least one thing the speaker treated as settled without arguing for it. If you genuinely find nothing, write &ldquo;nothing found, and here is why I am confident of that,&rdquo; then finish the sentence. Leaving it blank usually means you were following the speaker rather than weighing them.');
+      problems++;
+    } else {
+      notes.push('<strong>Column 4 is filled in.</strong> Now test it: could you say out loud what evidence would have settled that point? If not, you may have recorded something you disagreed with rather than something that went unsupported. Those are different findings.');
+    }
+
+    // Column 3: a blank here is a finding, not an omission, but it should be said explicitly.
+    if (wc(f.reasoning.value) < 3) {
+      notes.push('<strong>Column 3 is empty.</strong> If the speaker never connected the evidence to the claim, write that down in words. An empty box records nothing; the sentence &ldquo;they never connected these&rdquo; records the most serious thing you noticed.');
+      problems++;
+    }
+
+    // The MS1 rule: a named break without a remedy is half an objection.
+    if (breaks.length > 0 && wc(f.needed.value) < 5) {
+      notes.push('<strong>You named ' + breaks.length + ' ' + (breaks.length === 1 ? 'break' : 'breaks') + ' and stopped there.</strong> That is the label-as-objection trap from Lesson 4.MS1. A name tells a listener what category the problem is in; it does not tell them what is missing. Say what specific evidence the argument would need in order to work.');
+      problems++;
+    } else if (breaks.length > 0) {
+      notes.push('<strong>You named ' + breaks.length + ' ' + (breaks.length === 1 ? 'break' : 'breaks') + ' and said what would be needed.</strong> That is a complete objection rather than a label.');
+    } else {
+      notes.push('You checked none of the breaks, which is a perfectly legitimate outcome. Sound arguments exist, and a listening sheet that finds nothing wrong with a good argument is working correctly.');
+    }
+
+    // The question.
+    var q = (f.question.value || '').trim();
+    if (wc(q) < 4) {
+      notes.push('<strong>Your question is missing.</strong> One question the speaker could actually answer is the deliverable here.');
+      problems++;
+    } else if (q.indexOf('?') === -1) {
+      notes.push('<strong>Your question has no question mark,</strong> which is usually a sign it is a statement of disagreement rather than a question. Rewrite it as something the speaker could answer.');
+      problems++;
+    } else if (wc(q) > 45) {
+      notes.push('<strong>Your question is running long</strong> at ' + wc(q) + ' words. A long question is generally a speech with a question mark on the end. Cut it to the one thing you most need to know.');
+      problems++;
+    } else {
+      notes.push('<strong>Your question is the right length</strong> and is shaped as a question. Last test: would the speaker be able to answer it without first conceding they were wrong? If not, it is a trap, and traps get you a defensive answer rather than information.');
+    }
+
+    show(problems > 0 ? 'warn' : 'pass', notes);
+  });
+
+  document.getElementById('ls-download-btn').addEventListener('click', function () {
+    var last = (f.last.value || '').trim().replace(/[^A-Za-z-]/g, '') || 'LastName';
+    var first = (f.first.value || '').trim().replace(/[^A-Za-z-]/g, '') || 'FirstName';
+    var breaks = checkedBreaks();
+    var L = [];
+    L.push('LISTENING SHEET . WEIGHING A SPOKEN ARGUMENT');
+    L.push('English 2 (Kings and Community) . Module 2 . Week 4');
+    L.push('Listener: ' + first + ' ' + last);
+    L.push('Speaker and argument: ' + (f.speaker.value || '[not entered]'));
+    L.push('');
+    L.push('--- COLUMN 1 . THE CLAIM ---');
+    L.push(f.claim.value || '[not entered]');
+    L.push('');
+    L.push('--- COLUMN 2 . EVIDENCE OFFERED ---');
+    L.push(f.evidence.value || '[not entered]');
+    L.push('');
+    L.push('--- COLUMN 3 . THE REASONING CONNECTING THEM ---');
+    L.push(f.reasoning.value || '[not entered]');
+    L.push('');
+    L.push('--- COLUMN 4 . ASSERTED BUT NEVER SUPPORTED ---');
+    L.push(f.unsupported.value || '[not entered]');
+    L.push('');
+    L.push('--- WHAT I HEARD ---');
+    L.push(breaks.length ? breaks.map(function (b) { return '  . ' + b; }).join('\r\n') : '  . Nothing flagged.');
+    L.push('');
+    L.push('--- WHAT THE ARGUMENT WOULD NEED IN ORDER TO WORK ---');
+    L.push(f.needed.value || '[not entered]');
+    L.push('');
+    L.push('--- MY ONE QUESTION FOR THE SPEAKER ---');
+    L.push(f.question.value || '[not entered]');
+    L.push('');
+    L.push('Reminder: naming a break is half an objection. The half that does the damage');
+    L.push('is saying what evidence would have to be supplied.');
+
+    var blob = new Blob([L.join('\r\n')], { type: 'text/plain;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = last + '_' + first + '_ListeningSheet_ELA10.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  });
+
+  document.getElementById('ls-clear').addEventListener('click', function () {
+    Object.keys(f).forEach(function (k) { f[k].value = ''; });
+    root.querySelectorAll('.ls-breaks input').forEach(function (c) { c.checked = false; });
+    report.className = 'ls-check';
+    report.innerHTML = '';
+  });
+})();
+</script>
+
+</body>
+</html>
