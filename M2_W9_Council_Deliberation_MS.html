@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>English 2 &mdash; The Council Deliberates</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .optima-widget { background: linear-gradient(135deg, #EEF1F8 0%, #F4F6FA 100%); border: 1px solid #C7D0E5; border-left: 5px solid #3B4E8C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #3B4E8C; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #3B4E8C; }
+    .widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+    .widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+    .widget-feedback.show { display: block; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+    .widget-reset:hover { background: #FDF3E3; }
+    .role-grid { display: flex; flex-wrap: wrap; gap: 14px; }
+    .role-card { flex: 1; min-width: 232px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #3B4E8C; border-radius: 8px; padding: 15px 17px; }
+    .role-name { font-size: 13px; color: #3B4E8C; letter-spacing: 0.3px; margin-bottom: 7px; }
+    .role-job { font-size: 15px; color: #1a2340; line-height: 1.55; }
+    .step-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 15px 19px; margin-bottom: 13px; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- ===== HEADER ===== -->
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ENGLISH 2</div>
+    <div style="font-size: 18px; color: #55c8e8;">Quarter 2 &middot; Module 2: Oedipus the King &mdash; The Trial of a King &middot; Week 9 &middot; Student Page</div>
+</div>
+
+<!-- ===== METADATA STRIP ===== -->
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 4px;">Quarter / Module</div>
+        <div style="font-size: 17px; color: #0e1c42;">Q2 &middot; Module 2</div>
+        <div style="font-size: 12px; color: #1a2340;">Oedipus the King: The Trial of a King</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 4px;">Week</div>
+        <div style="font-size: 17px; color: #0e1c42;">Week 9</div>
+        <div style="font-size: 12px; color: #1a2340;">Discussion brief</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 4px;">Anchor Text</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Oedipus the King</div>
+        <div style="font-size: 12px; color: #1a2340;">Sophocles, trans. F. Storr (public domain)</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Kings and Community</div>
+    </div>
+</div>
+
+<!-- ===== BODY WRAPPER ===== -->
+<div style="padding: 24px 34px;">
+
+    <!-- Title strip -->
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Week 9 &middot; Discussion brief</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">The Council Deliberates</div>
+        <div style="font-size: 16px; color: #1a2340;">Read this page, then post in the Canvas discussion</div>
+    </div>
+
+    <!-- Today's Focus -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; WHAT THIS WEEK ASKS OF YOU</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">You have argued your case. Now you have to sit with the people who argued the other one.</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">The Council of Thebes does not exist to declare a winner. It exists to reach a verdict the city can live with, and then to say what that verdict means for the city going forward. That is a harder task than winning an argument, and it is the task in front of you now.</div>
+    </div>
+
+    <!-- The freedom clause -->
+    <div style="background: #EEF1F8; border-left: 5px solid #3B4E8C; border-radius: 6px; padding: 16px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #3B4E8C; margin-bottom: 10px;">&#128274; READ THIS FIRST</div>
+        <div style="font-size: 17px; color: #1a2340; line-height: 1.65;">Your brief is already submitted and graded on its own merits. <strong>Nothing you say here can change that score.</strong> You are free to say you have reconsidered, and equally free to say that hearing the other side has left you exactly where you were. Your mark here depends only on the quality of your own contribution, never on what the Council concludes or on whether you end up on the winning side.</div>
+    </div>
+
+    <!-- ===== THE THREE STEPS ===== -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; WHAT TO POST</div>
+
+        <div class="step-card">
+            <div style="font-size: 13px; color: #C7922C; letter-spacing: 0.3px; margin-bottom: 7px;">STEP 1 &middot; OPEN YOUR POSITION FOR REVISION (BY MID-WEEK)</div>
+            <div style="font-size: 16px; color: #1a2340; line-height: 1.65;">In three or four sentences:<br />
+            1. State the verdict you argued, and the standard of judgment you argued it by.<br />
+            2. Name the single <strong>strongest</strong> thing you heard from the other side, at the tribunal or in the briefs you read. Not the weakest. The strongest.<br />
+            3. Say what it would take to change your verdict. If the honest answer is that nothing could, say that, and say why. An unfalsifiable position is a real position, but the Council is entitled to know it is dealing with one.</div>
+        </div>
+
+        <div class="step-card">
+            <div style="font-size: 13px; color: #C7922C; letter-spacing: 0.3px; margin-bottom: 7px;">STEP 2 &middot; TAKE A ROLE AND DO ITS JOB (BY END OF WEEK)</div>
+            <div style="font-size: 16px; color: #1a2340; line-height: 1.65;">Look at the pinned role list in the discussion. <strong>Claim the role with the fewest people in it</strong> and say in your first line which role you are taking. The four roles and their jobs are below.</div>
+        </div>
+
+        <div class="step-card">
+            <div style="font-size: 13px; color: #C7922C; letter-spacing: 0.3px; margin-bottom: 7px;">STEP 3 &middot; REACH A VERDICT, OR SAY HONESTLY THAT YOU CANNOT (BY END OF WEEK)</div>
+            <div style="font-size: 16px; color: #1a2340; line-height: 1.65;">Reply once to the Drafter&rsquo;s proposed verdict, or to the strongest amendment of it. Either <strong>endorse it</strong>, saying what convinced you, or <strong>dissent from it</strong>, saying what the Council has failed to account for. A recorded dissent is a complete and honorable outcome. A Council that splits and says so has done its job better than one that pretends to agree.</div>
+        </div>
+    </div>
+
+    <!-- ===== THE FOUR ROLES (one meaningful visual) ===== -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; THE FOUR ROLES</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 16px 0;">Every role has a different job, and a Council needs all four. Claim the emptiest one, not your favorite. A Council in which everyone wants to be the Drafter decides nothing.</p>
+
+        <div class="role-grid">
+            <div class="role-card">
+                <div class="role-name">THE RECONCILER</div>
+                <div class="role-job">Find two posts that appear to disagree and identify what they actually agree on underneath. Very often the disagreement is about the <em>standard</em>, not the facts. Name it precisely.</div>
+            </div>
+            <div class="role-card">
+                <div class="role-name">THE HOLDOUT</div>
+                <div class="role-job">Argue for a verdict that is losing in this thread. You do not have to believe it. Somebody has to make sure the Council&rsquo;s verdict has been tested rather than assumed.</div>
+            </div>
+            <div class="role-card">
+                <div class="role-name">THE CLERK</div>
+                <div class="role-job">Track where the Council actually stands: how many for each verdict, on what standard, and what the one unresolved question is. State it plainly, without arguing for a side.</div>
+            </div>
+            <div class="role-card">
+                <div class="role-name">THE DRAFTER</div>
+                <div class="role-job">Propose the Council&rsquo;s verdict in two sentences: the finding, and what Thebes should do next. Others will amend it, and that is the point.</div>
+            </div>
+        </div>
+
+        <!-- reflective check-in -->
+        <div class="optima-widget ow-reflect">
+            <div class="widget-kicker">&#9889; QUICK CHECK-IN</div>
+            <div class="widget-question">Before you look at which roles are still open, which one are you instinctively drawn to? (No wrong answer.)</div>
+            <div class="widget-options">
+                <button data-response="Then the Holdout may be the more useful thing for you to do. Drafting is satisfying, but a proposal nobody has pressure-tested is not a verdict, it is a guess with confidence attached.">&#9997;&#65039; The Drafter, because I want to shape the outcome</button>
+                <button data-response="Good instinct, and notice it is the hardest of the four to do honestly. The Reconciler has to represent two positions fairly, including one they may disagree with, before saying what they share.">&#129309; The Reconciler, because I would rather find common ground</button>
+                <button data-response="That willingness is genuinely valuable, and worth doing without contempt. A Holdout who argues the losing verdict as well as its real advocates would is the reason a Council&rsquo;s conclusion is worth anything.">&#9878;&#65039; The Holdout, because arguing the losing side sounds interesting</button>
+                <button data-response="The Clerk looks like the modest role and is often the most influential, because the person who states where the Council stands frames what everyone else argues about next. Accuracy matters enormously here.">&#128203; The Clerk, because I would rather map the argument than join it</button>
+            </div>
+            <div class="widget-feedback"></div>
+            <button class="widget-reset">Reset</button>
+        </div>
+    </div>
+
+    <!-- ===== HOW TO DO THIS WELL ===== -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; HOW TO DO THIS WELL</div>
+        <div style="font-size: 17px; color: #1a2340; line-height: 1.75;">
+        &#9654; <strong>Consensus is not the goal.</strong> An honest, well-mapped disagreement is a better outcome than a false agreement.<br />
+        &#9654; <strong>You may change your mind.</strong> Saying so out loud, after arguing the other way in a graded brief, takes more nerve than holding the line, and it is the single most respectable move available in this thread.<br />
+        &#9654; <strong>You may also refuse to change your mind.</strong> Then your job is to say what would change it.<br />
+        &#9654; <strong>Argue about the standard of judgment, not about each other.</strong> Almost every real disagreement in this case is a disagreement about what guilt requires, not about what Oedipus did.<br />
+        &#9654; <strong>Bring your listening sheet</strong> if you built one. The four columns are exactly what a Council member needs while reading a thread this long.
+        </div>
+    </div>
+
+    <!-- ===== HOW THIS IS SCORED ===== -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128221; HOW THIS IS SCORED</div>
+        <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 15px; color: #1a2340; min-width: 560px;">
+            <tr style="background: #EEF1F8;">
+                <th style="text-align: left; padding: 10px 12px; border: 1px solid #D0D9E8; color: #0E1C42; font-size: 13px; letter-spacing: 0.3px;">LEVEL</th>
+                <th style="text-align: left; padding: 10px 12px; border: 1px solid #D0D9E8; color: #0E1C42; font-size: 13px; letter-spacing: 0.3px;">STEP 1</th>
+                <th style="text-align: left; padding: 10px 12px; border: 1px solid #D0D9E8; color: #0E1C42; font-size: 13px; letter-spacing: 0.3px;">STEPS 2 AND 3</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px 12px; border: 1px solid #D0D9E8;"><strong>Full</strong></td>
+                <td style="padding: 10px 12px; border: 1px solid #D0D9E8;">States verdict and standard, names the genuinely strongest opposing point, and answers what would change your mind (including an honest &ldquo;nothing, because&hellip;&rdquo;)</td>
+                <td style="padding: 10px 12px; border: 1px solid #D0D9E8;">Claims a role and does <em>that role&rsquo;s</em> job rather than restating your brief, then either endorses or dissents from the proposed verdict with a stated reason</td>
+            </tr>
+            <tr style="background: #FDFCF8;">
+                <td style="padding: 10px 12px; border: 1px solid #D0D9E8;"><strong>Partial</strong></td>
+                <td style="padding: 10px 12px; border: 1px solid #D0D9E8;">Restates the brief without naming a real opposing strength, or dodges the what-would-change-your-mind question</td>
+                <td style="padding: 10px 12px; border: 1px solid #D0D9E8;">Claims a role but argues your own case under its name, or never replies to the proposed verdict</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px 12px; border: 1px solid #D0D9E8;"><strong>Missing</strong></td>
+                <td style="padding: 10px 12px; border: 1px solid #D0D9E8;">No post</td>
+                <td style="padding: 10px 12px; border: 1px solid #D0D9E8;">No participation in the deliberation</td>
+            </tr>
+        </table>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; BEFORE YOU POST</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">A whole quarter has been spent learning to build an argument and to test one. This is the week you find out what the harder skill is: sitting with people who reached a different verdict from the same evidence, representing their position fairly, and then deciding something anyway. That is what a community does when it disagrees and still has to act.</p>
+    </div>
+
+</div>
+<!-- ===== /BODY WRAPPER ===== -->
+
+<!-- ===== FOOTER ===== -->
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ENGLISH 2 &middot; Quarter 2 &middot; Student Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Week 9 &middot; The Council Deliberates</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- ===== WIDGET RUNTIME ===== -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
